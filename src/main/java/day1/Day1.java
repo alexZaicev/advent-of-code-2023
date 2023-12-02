@@ -13,8 +13,7 @@ public class Day1 {
 
   @SneakyThrows
   public static void main(String[] args) {
-    String input = FileUtils.readResourceFile(INPUT_FILE);
-    var lines = input.split("\n");
+    var lines = FileUtils.readResourceFile(INPUT_FILE);
     log.info("Calibration sum: %d".formatted(calculateSum(lines)));
     log.info("Calibration with words sum: %d".formatted(calculateSumWithWords(lines)));
   }
