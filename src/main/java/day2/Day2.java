@@ -1,4 +1,4 @@
-package day1;
+package day2;
 
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
@@ -12,8 +12,8 @@ import java.util.regex.Pattern;
 @Log4j2
 public class Day2 {
 
-    private static final GameRules RULES = new GameRules(12, 14, 13);
     static final String INPUT_FILE = "day_2/games.txt";
+    private static final GameRules RULES = new GameRules(12, 14, 13);
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -149,5 +149,6 @@ public class Day2 {
     }
 
 
-    record GameRules(int red, int blue, int green) {}
+    record GameRules(int red, int blue, int green) {
+    }
 }
