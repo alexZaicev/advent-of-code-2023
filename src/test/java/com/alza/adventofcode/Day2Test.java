@@ -1,4 +1,4 @@
-package day2;
+package com.alza.adventofcode;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -48,7 +48,7 @@ class Day2Test {
         lines.toArray(arrLines);
 
         // act
-        var result = Day2.calculateGameSum(arrLines);
+        var result = new Day2.Application(arrLines).calculateGameSum();
 
         // assert
         assertEquals(expectedResult, result);
@@ -62,7 +62,7 @@ class Day2Test {
         lines.toArray(arrLines);
 
         // act
-        var result = Day2.calculateGamePower(arrLines);
+        var result = new Day2.Application(arrLines).calculateGamePower();
 
         // assert
         assertEquals(expectedResult, result);
