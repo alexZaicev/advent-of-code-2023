@@ -26,46 +26,44 @@ public class Day5 {
         @SneakyThrows
         public long findLowestLocation() {
             // create seed ranges
-            Deque<Range> seedRanges = getSeedRanges();
-            List<List<MapRange>> mapRanges = getMappingRanges();
+            Deque<Range> currentRanges = getSeedRanges();
+            List<List<MapRange>> mappingRanges = getMappingRanges();
 
-            for (List<MapRange> ranges : mapRanges) {
-                Deque<Range> newSeedRanges = new ArrayDeque<>();
-                while (!seedRanges.isEmpty()) {
-                    Range seedRange = seedRanges.pollLast();
+            for (List<MapRange> ranges : mappingRanges) {
+                Deque<Range> mappedRanges = new ArrayDeque<>();
+                while (!currentRanges.isEmpty()) {
+                    Range currentRange = currentRanges.pollLast();
 
                     var shouldAdd = true;
                     for (MapRange range : ranges) {
-                        long sourceStart = Math.max(seedRange.start(), range.source());
-                        long sourceEnd = Math.min(seedRange.end(), range.sourceEnd());
+                        long sourceStart = Math.max(currentRange.start(), range.source());
+                        long sourceEnd = Math.min(currentRange.end(), range.sourceEnd());
 
-                        if (sourceStart >= sourceEnd) {
-                            continue;
-                        }
-
-                        newSeedRanges.addLast(new Range(
+                        if (sourceStart < sourceEnd) {
+                            mappedRanges.addLast(new Range(
                                 sourceStart - range.source() + range.target(),
                                 sourceEnd - range.source() + range.target()
-                        ));
-                        if (sourceStart > seedRange.start()) {
-                            seedRanges.addLast(new Range(seedRange.start(), sourceStart));
+                            ));
+                            if (sourceStart > currentRange.start()) {
+                                currentRanges.addLast(new Range(currentRange.start(), sourceStart));
+                            }
+                            if (currentRange.end() > sourceEnd) {
+                                currentRanges.addLast(new Range(sourceEnd, currentRange.end()));
+                            }
+                            shouldAdd = false;
+                            break;
                         }
-                        if (seedRange.end() > sourceEnd) {
-                            seedRanges.addLast(new Range(sourceEnd, seedRange.end()));
-                        }
-                        shouldAdd = false;
-                        break;
                     }
 
                     if (shouldAdd) {
-                        newSeedRanges.add(seedRange);
+                        mappedRanges.add(currentRange);
                     }
                 }
-                seedRanges.addAll(newSeedRanges);
+                currentRanges.addAll(mappedRanges);
             }
 
             List<Long> locations = new ArrayList<>();
-            seedRanges.forEach(range -> {
+            currentRanges.forEach(range -> {
                 locations.add(range.start());
                 locations.add(range.end());
             });
