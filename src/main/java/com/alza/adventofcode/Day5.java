@@ -1,6 +1,7 @@
 package com.alza.adventofcode;
 
 import com.alza.adventofcode.utils.FileUtils;
+import java.util.concurrent.atomic.AtomicLong;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
@@ -62,13 +63,11 @@ public class Day5 {
                 currentRanges.addAll(mappedRanges);
             }
 
-            List<Long> locations = new ArrayList<>();
-            currentRanges.forEach(range -> {
-                locations.add(range.start());
-                locations.add(range.end());
-            });
-            Collections.sort(locations);
-            return locations.get(0);
+            return currentRanges.stream()
+                .map(Range::start)
+                .sorted()
+                .findFirst()
+                .orElse(0L);
         }
 
         private Deque<Range> getSeedRanges() {
