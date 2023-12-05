@@ -8,17 +8,17 @@ import java.nio.charset.StandardCharsets;
 
 public class URLUtils {
 
-  public static String getRawStringFromURL(String url) {
-    HttpResponse<String> response;
-    try {
-      HttpClient client = HttpClient.newBuilder().build();
-      HttpRequest req = HttpRequest.newBuilder(URI.create(url)).GET().build();
-      response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-    } catch (Exception ex) {
-      throw new RuntimeException("failed to get input from URL", ex);
-    }
+    public static String getRawStringFromURL(String url) {
+        HttpResponse<String> response;
+        try {
+            HttpClient client = HttpClient.newBuilder().build();
+            HttpRequest req = HttpRequest.newBuilder(URI.create(url)).GET().build();
+            response = client.send(req, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
+        } catch (Exception ex) {
+            throw new RuntimeException("failed to get input from URL", ex);
+        }
 
-    return response.toString();
-  }
+        return response.toString();
+    }
 
 }
