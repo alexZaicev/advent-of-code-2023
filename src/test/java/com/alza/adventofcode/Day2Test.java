@@ -44,11 +44,8 @@ class Day2Test {
     @MethodSource(value = "getSumSuccess")
     void calculateGameSum_success(int expectedResult, List<String> lines) {
         // arrange
-        var arrLines = new String[lines.size()];
-        lines.toArray(arrLines);
-
         // act
-        var result = new Day2.Application(arrLines).calculateGameSum();
+        var result = new Day2.Application(lines).calculateGameSum();
 
         // assert
         assertEquals(expectedResult, result);
@@ -58,11 +55,8 @@ class Day2Test {
     @MethodSource(value = "getPowerSuccess")
     void calculateGamePower_success(int expectedResult, List<String> lines) {
         // arrange
-        var arrLines = new String[lines.size()];
-        lines.toArray(arrLines);
-
         // act
-        var result = new Day2.Application(arrLines).calculateGamePower();
+        var result = new Day2.Application(lines).calculateGamePower();
 
         // assert
         assertEquals(expectedResult, result);

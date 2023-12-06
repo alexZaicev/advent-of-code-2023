@@ -1,6 +1,7 @@
 package com.alza.adventofcode;
 
 import com.alza.adventofcode.utils.FileUtils;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
@@ -19,10 +20,10 @@ public class Template {
     @RequiredArgsConstructor
     public static class Application {
 
-        private final String[] lines;
+        private final List<String> lines;
 
         public int calculateSum() {
-            return lines.length + lines.length;
+            return lines.size() + lines.size();
         }
     }
 

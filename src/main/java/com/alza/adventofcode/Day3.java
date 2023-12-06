@@ -24,21 +24,21 @@ public class Day3 {
     public static class Application {
 
         private static final char GEAR_SYMBOL = '*';
-        private final String[] lines;
+        private final List<String> lines;
 
         public int calculatePartSum() {
             int sum = 0;
 
-            for (int idx = 0; idx < lines.length; ++idx) {
-                var line = lines[idx].strip();
+            for (int idx = 0; idx < lines.size(); ++idx) {
+                var line = lines.get(idx).strip();
 
                 Set<Integer> previousIdx = idx == 0
                         ? Set.of()
-                        : getSymbolIndexes(lines[idx - 1]);
+                        : getSymbolIndexes(lines.get(idx - 1));
                 Set<Integer> currentIdx = getSymbolIndexes(line);
-                Set<Integer> nextIdx = idx == lines.length - 1
+                Set<Integer> nextIdx = idx == lines.size() - 1
                         ? Set.of()
-                        : getSymbolIndexes(lines[idx + 1]);
+                        : getSymbolIndexes(lines.get(idx + 1));
 
                 for (Number nm : getNumbersFromLine(line)) {
                     if (nm.isAdjacentNumber(currentIdx)
@@ -55,8 +55,8 @@ public class Day3 {
         public int calculateGearRatio() {
             int sum = 0;
 
-            for (int idx = 0; idx < lines.length; ++idx) {
-                var line = lines[idx].strip();
+            for (int idx = 0; idx < lines.size(); ++idx) {
+                var line = lines.get(idx).strip();
 
                 if (!line.contains("*")) {
                     continue;
@@ -65,11 +65,11 @@ public class Day3 {
 
                 List<Number> previous = idx == 0
                         ? List.of()
-                        : getNumbersFromLine(lines[idx - 1].strip());
+                        : getNumbersFromLine(lines.get(idx - 1).strip());
                 List<Number> current = getNumbersFromLine(line);
-                List<Number> next = idx == lines.length - 1
+                List<Number> next = idx == lines.size() - 1
                         ? List.of()
-                        : getNumbersFromLine(lines[idx + 1].strip());
+                        : getNumbersFromLine(lines.get(idx + 1).strip());
 
                 previous = previous.stream().filter(nm -> nm.isAdjacentNumber(indexes)).toList();
                 current = current.stream().filter(nm -> nm.isAdjacentNumber(indexes)).toList();

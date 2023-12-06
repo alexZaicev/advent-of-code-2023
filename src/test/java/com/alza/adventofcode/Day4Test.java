@@ -43,7 +43,7 @@ class Day4Test {
   void calculateWinningPoints_success(int expectedResult, String input) {
     // arrange
     // act
-    var result = new Day4.Application(input.split("\n")).calculateWinningPoints();
+    var result = new Day4.Application(Tools.parseInput(input)).calculateWinningPoints();
 
     // assert
     assertEquals(expectedResult, result);
@@ -54,7 +54,7 @@ class Day4Test {
   void calculateNumberOfScratchcard_success(int expectedResult, String input) {
     // arrange
     // act
-    var result = new Day4.Application(input.split("\n")).calculateNumberOfScratchcard();
+    var result = new Day4.Application(Tools.parseInput(input)).calculateNumberOfScratchcard();
 
     // assert
     assertEquals(expectedResult, result);

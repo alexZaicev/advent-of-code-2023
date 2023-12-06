@@ -26,7 +26,7 @@ public class Day1 {
         private static final String[] numWords = new String[]{
                 "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
         };
-        private final String[] lines;
+        private final List<String> lines;
 
         public int calculateSum() {
             int sum = 0;

@@ -26,7 +26,7 @@ public class Day4 {
     @RequiredArgsConstructor
     public static class Application {
 
-        private final String[] lines;
+        private final List<String> lines;
 
         public int calculateWinningPoints() {
             int sum = 0;
@@ -44,7 +44,7 @@ public class Day4 {
 
             Map<Integer, Integer> copies = new HashMap<>();
 
-            for (int i = 0; i < lines.length; ++i) {
+            for (int i = 0; i < lines.size(); ++i) {
                 copies.put(i + 1, 1);
             }
 
@@ -63,7 +63,7 @@ public class Day4 {
             }
 
             for (var entry : copies.entrySet()) {
-                if (entry.getKey() <= lines.length) {
+                if (entry.getKey() <= lines.size()) {
                     sum += entry.getValue();
                 }
             }

@@ -33,10 +33,8 @@ class Day1Test {
   @MethodSource(value = "getInput")
   void shouldCalculateSum(int expectedSum, List<String> lines) {
     // arrange
-    var arrLines = new String[lines.size()];
-    lines.toArray(arrLines);
     // act
-    var sum = new Day1.Application(arrLines).calculateSum();
+    var sum = new Day1.Application(lines).calculateSum();
     // assert
     assertEquals(expectedSum, sum);
   }
@@ -45,10 +43,8 @@ class Day1Test {
   @MethodSource(value = "getInputWithWords")
   void shouldCalculateSum2(int expectedSum, List<String> lines) {
     // arrange
-    var arrLines = new String[lines.size()];
-    lines.toArray(arrLines);
     // act
-    var sum = new Day1.Application(arrLines).calculateSumWithWords();
+    var sum = new Day1.Application(lines).calculateSumWithWords();
     // assert
     assertEquals(expectedSum, sum);
   }

@@ -55,7 +55,7 @@ class Day5Test {
   void calculateWinningPoints_success(int expectedResult, String input) {
     // arrange
     // act
-    var result = new Day5.Application(input.split("\n")).findLowestLocation();
+    var result = new Day5.Application(Tools.parseInput(input)).findLowestLocation();
 
     // assert
     assertEquals(expectedResult, result);

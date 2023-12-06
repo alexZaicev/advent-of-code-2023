@@ -1,5 +1,6 @@
 package com.alza.adventofcode;
 
+import java.util.Arrays;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -56,7 +57,7 @@ class Day3Test {
     void calculateSum_success(int expectedResult, String input) {
         // arrange
         // act
-        var result = new Day3.Application(input.split("\n")).calculatePartSum();
+        var result = new Day3.Application(Tools.parseInput(input)).calculatePartSum();
 
         // assert
         assertEquals(expectedResult, result);
@@ -67,7 +68,7 @@ class Day3Test {
     void calculateGearRatio_success(int expectedResult, String input) {
         // arrange
         // act
-        var result = new Day3.Application(input.split("\n")).calculateGearRatio();
+        var result = new Day3.Application(Tools.parseInput(input)).calculateGearRatio();
 
         // assert
         assertEquals(expectedResult, result);

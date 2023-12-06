@@ -25,7 +25,7 @@ public class Day2 {
     @RequiredArgsConstructor
     public static class Application {
         private static final GameRules RULES = new GameRules(12, 14, 13);
-        private final String[] lines;
+        private final List<String> lines;
 
         public int calculateGameSum() {
             var sum = 0;

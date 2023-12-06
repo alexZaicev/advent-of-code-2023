@@ -1,7 +1,6 @@
 package com.alza.adventofcode;
 
 import com.alza.adventofcode.utils.FileUtils;
-import java.util.concurrent.atomic.AtomicLong;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
@@ -22,7 +21,7 @@ public class Day5 {
     @RequiredArgsConstructor
     public static class Application {
 
-        private final String[] lines;
+        private final List<String> lines;
 
         @SneakyThrows
         public long findLowestLocation() {
@@ -73,7 +72,7 @@ public class Day5 {
         private Deque<Range> getSeedRanges() {
             Deque<Range> seedRanges = new ArrayDeque<>();
 
-            var tokens = lines[0].split(":")[1].split(" ");
+            var tokens = lines.get(0).split(":")[1].split(" ");
             for (int i = 1; i < tokens.length; i += 2) {
                 long start = Long.parseLong(tokens[i]);
                 long amount = Long.parseLong(tokens[i + 1]);
@@ -87,8 +86,8 @@ public class Day5 {
             List<List<MapRange>> maps = new ArrayList<>();
 
             List<MapRange> tmp = new ArrayList<>();
-            for (int i = 1; i < lines.length; ++i) {
-                var line = lines[i].strip();
+            for (int i = 1; i < lines.size(); ++i) {
+                var line = lines.get(i).strip();
                 if (line.isEmpty() || !Character.isDigit(line.toCharArray()[0])) {
                     if (!tmp.isEmpty()) {
                         maps.add(List.copyOf(tmp));
