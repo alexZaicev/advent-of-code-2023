@@ -5,7 +5,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 
 @Log4j2
 public class Day5 {
@@ -41,8 +44,8 @@ public class Day5 {
 
                         if (sourceStart < sourceEnd) {
                             mappedRanges.addLast(new Range(
-                                sourceStart - range.source() + range.target(),
-                                sourceEnd - range.source() + range.target()
+                                    sourceStart - range.source() + range.target(),
+                                    sourceEnd - range.source() + range.target()
                             ));
                             if (sourceStart > currentRange.start()) {
                                 currentRanges.addLast(new Range(currentRange.start(), sourceStart));
@@ -63,10 +66,10 @@ public class Day5 {
             }
 
             return currentRanges.stream()
-                .map(Range::start)
-                .sorted()
-                .findFirst()
-                .orElse(0L);
+                    .map(Range::start)
+                    .sorted()
+                    .findFirst()
+                    .orElse(0L);
         }
 
         private Deque<Range> getSeedRanges() {

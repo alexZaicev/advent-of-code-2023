@@ -1,10 +1,11 @@
 package com.alza.adventofcode;
 
 import com.alza.adventofcode.utils.FileUtils;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
+
+import java.util.List;
 
 @Log4j2
 public class Template {

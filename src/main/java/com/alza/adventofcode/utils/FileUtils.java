@@ -1,13 +1,13 @@
 package com.alza.adventofcode.utils;
 
-import java.util.Arrays;
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FileUtils {
@@ -24,8 +24,8 @@ public class FileUtils {
             }
 
             return Arrays.stream(new String(is.readAllBytes()).split(splitSymbol))
-                .filter(s -> !s.isBlank())
-                .toList();
+                    .filter(s -> !s.isBlank())
+                    .toList();
         }
     }
 
