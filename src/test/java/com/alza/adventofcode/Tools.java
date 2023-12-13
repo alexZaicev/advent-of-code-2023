@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 public class Tools {
 
   public static List<String> parseInput(String s) {
-    return Arrays.stream(s.split("\n")).filter(ss -> !ss.isBlank()).toList();
+    return parseInput(s, false);
+  }
+
+  public static List<String> parseInput(String s, boolean leaveBlank) {
+    return Arrays.stream(s.split("\n")).filter(ss -> !ss.isBlank() || leaveBlank).toList();
   }
 
 }

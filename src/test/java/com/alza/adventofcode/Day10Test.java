@@ -55,7 +55,7 @@ L--J.L7...LJS7F-7L7.
   void findTheLastPipe_success(int expectedResult, String input) {
     // arrange
     // act
-    var result = new Day10.Application(Tools.parseInput(input)).findTheLastPipe();
+    var result = new Day10.Application(Tools.parseInput(input)).findChainLength();
 
     // assert
     assertEquals(expectedResult, result);
