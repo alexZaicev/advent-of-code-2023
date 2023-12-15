@@ -1,6 +1,8 @@
 package com.alza.adventofcode.utils;
 
-import javax.swing.Spring;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

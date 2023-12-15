@@ -72,6 +72,8 @@ public class Day14 {
     private List<String> rollTheRocks(List<String> grid) {
       List<String> newGrid = new ArrayList<>();
       for (var line : ListUtils.transpose(grid)) {
+        // custom split and rearrange logic as Java split function
+        // loses empty strings of the delimiter is in the middle
         var sb = new StringBuilder();
         var offset = 0;
         var sections = line.split("#");
